@@ -1,0 +1,20 @@
+IEIS.IO FINAL DEPLOYMENT
+
+Upload the CONTENTS of this folder to:
+https://ieltswithieis-design.github.io/q/
+
+Supabase URL:
+https://anmgfvvctliukrzkffvi.supabase.co
+
+Supabase URL Configuration:
+Site URL: https://ieltswithieis-design.github.io/q/
+Redirect URL: https://ieltswithieis-design.github.io/q/
+
+The website uses Supabase directly. Do not run server.js.
+Exactly 1,000 Reading passages are included.
+The IEIS logo is assets/ieis-logo.png.
+
+To make an account staff:
+update public.profiles set role='staff' where email='YOUR-STAFF-EMAIL';
+
+Never put an sb_secret/service_role key into GitHub.
