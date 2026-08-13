@@ -1,1 +1,97 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IEIS.IO — IELTS Examination Portal</title><link rel="icon" href="assets/ieis-logo.png"><link rel="stylesheet" href="styles.css"></head><body><div id="app"></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script>window.ieisSupabase=window.supabase.createClient(window.IEIS_CONFIG.supabaseUrl,window.IEIS_CONFIG.supabasePublishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});</script><script src="passages.js"></script><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>IEIS.IO — IELTS Examination Portal</title>
+
+  <meta
+    name="description"
+    content="IEIS.IO IELTS Academic Reading and Writing online examination portal."
+  >
+
+  <link rel="icon" href="assets/ieis-logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div id="app">
+    <div style="
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:Arial,sans-serif;
+      color:#123d7a;
+    ">
+      Loading IEIS.IO...
+    </div>
+  </div>
+
+  <!-- Supabase JavaScript library -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+
+  <!-- IEIS.IO configuration -->
+  <script>
+    window.IEIS_CONFIG = {
+      supabaseUrl:
+        "https://anmgfvvctliukrzkffvi.supabase.co",
+
+      supabasePublishableKey:
+        "sb_publishable_YkSJMqS6Yxa_huHIWRL23A_LASMDEMS",
+
+      siteUrl:
+        "https://ieltswithieis-design.github.io/o/"
+    };
+  </script>
+
+  <!-- Create Supabase client -->
+  <script>
+    if (
+      !window.supabase ||
+      !window.IEIS_CONFIG.supabaseUrl ||
+      !window.IEIS_CONFIG.supabasePublishableKey
+    ) {
+      document.getElementById("app").innerHTML = `
+        <div style="
+          max-width:700px;
+          margin:80px auto;
+          padding:30px;
+          font-family:Arial,sans-serif;
+          text-align:center;
+        ">
+          <h1>IEIS.IO</h1>
+          <h2>Supabase configuration error</h2>
+          <p>
+            The Supabase library or configuration could not be loaded.
+          </p>
+        </div>
+      `;
+      throw new Error("Supabase configuration unavailable.");
+    }
+
+    window.ieisSupabase = window.supabase.createClient(
+      window.IEIS_CONFIG.supabaseUrl,
+      window.IEIS_CONFIG.supabasePublishableKey,
+      {
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true
+        }
+      }
+    );
+  </script>
+
+  <!-- IEIS.IO examination library -->
+  <script src="passages.js"></script>
+
+  <!-- IEIS.IO application -->
+  <script src="app.js"></script>
+
+</body>
+</html>
